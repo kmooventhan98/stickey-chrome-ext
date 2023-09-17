@@ -1,11 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Ofz bookmark",
-  "description": "A bookmark for a new office",
+  "name": "temproary sticky",
+  "description": "a simple temproary sticky note",
   "version": "1.0",
   "action": {
-    "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png",
-    "default_title": "Ofz bookmark"
-  }
+    "default_popup": "index.html",
+    "default_icon": "ext_icon.png",
+    "default_title": "Take a note"
+  },
+  "author": "kmooventhan98@gmail.com" 
 }
