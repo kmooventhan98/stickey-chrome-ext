@@ -1,4 +1,70 @@
 body {
   background-color: beige;
-  width: 80vw;
+  width: 95vw;
+}
+
+form {
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s; /* Add transition for smooth color change */
+}
+
+/* Change border color on focus */
+input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add CSS to style the table */
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.todo-table tr {
+  border-bottom: 1px solid #ccc; /* Add a horizontal line to separate rows */
+}
+
+/* Update the first td to take 90% width */
+.todo-table td:first-child {
+  width: 90%;
+}
+
+/* Update the Edit and Delete columns to take 10% each */
+.todo-table td:nth-child(2),
+.todo-table td:nth-child(3) {
+  width: 10%;
+}
+
+.todo-table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.todo-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.todo-table tr:hover {
+  background-color: #ddd;
+}
+
+/* Add some margin below the table */
+.container {
+  margin-bottom: 20px;
 }

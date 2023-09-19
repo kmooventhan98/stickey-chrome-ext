@@ -1,12 +1,24 @@
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <input type="text" name="name" id="name" placeholder="John Doe" />
-    <label for="name">Enter name</label>
-    <input type="button" value="Save" />
-    <div class="container" id="container"></div>
+</head>
+<body>
+    <form>
+        <input
+            type="text"
+            id="todo"
+            name="todo"
+            placeholder="Enter a new task"
+            autocomplete="off"
+        />
+        <input type="submit" value="Add" id="addButton" />
+    </form>
+    <div class="container" id="container">
+        <table class="todo-table">
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
