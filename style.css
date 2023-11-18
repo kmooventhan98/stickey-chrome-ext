@@ -1,6 +1,6 @@
 body {
   background-color: beige;
-  width: 95vw;
+  min-width: 96vw;
 }
 
 form {
