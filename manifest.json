@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "temproary sticky",
-  "description": "a simple temproary sticky note",
+  "description": "a simple temproary sticky note with CRUD",
   "version": "1.0",
   "action": {
     "default_popup": "index.html",

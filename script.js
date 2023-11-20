@@ -43,21 +43,64 @@ function updateTable(namesArray) {
   const tableBody = document.getElementById("table-body");
   tableBody.innerHTML = ""; // Clear existing table rows
 
-  namesArray.forEach((element, index) => {
+  for (let index = namesArray.length - 1; index >= 0; index--) {
     const row = document.createElement("tr");
     row.id = `${index}`;
-    row.innerHTML = `
-          <td>${element}</td>
-          <td><button class="edit-button" onclick="editRecord(${index})">Edit</button></td>
-          <td><button class="delete-button" onclick="deleteRecord(${index})">X</button></td>
-      `;
+
+    const editButton = document.createElement("button");
+    editButton.className = "edit-button";
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", () => editRecord(index));
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
+    deleteButton.textContent = "X";
+    deleteButton.addEventListener("click", () => deleteRecord(index));
+
+    const copyButton = document.createElement("button");
+    copyButton.className = "copy-button";
+    copyButton.textContent = "Copy";
+    copyButton.addEventListener("click", () =>
+      copyRecordToClipboard(namesArray[index])
+    );
+
+    const cell1 = document.createElement("td");
+    cell1.textContent = namesArray[index];
+
+    const cell2 = document.createElement("td");
+    cell2.appendChild(editButton);
+
+    const cell3 = document.createElement("td");
+    cell3.appendChild(deleteButton);
+
+    const cell4 = document.createElement("td");
+    cell4.appendChild(copyButton);
+
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+
     tableBody.appendChild(row);
-  });
+  }
 }
 
 function editRecord(index) {
-  // You can implement edit functionality here if needed
-  console.log("Editing record with ID: " + index);
+  var namesArray = JSON.parse(localStorage.getItem("namesArray")) || [];
+
+  // Prompt the user to enter the updated name
+  const updatedName = prompt("Edit the name:", namesArray[index]);
+
+  if (updatedName !== null) {
+    // Update the name in the array
+    namesArray[index] = updatedName;
+
+    // Update local storage with the modified array
+    localStorage.setItem("namesArray", JSON.stringify(namesArray));
+
+    // Update the table with the latest data
+    updateTable(namesArray);
+  }
 }
 
 function deleteRecord(index) {
@@ -71,4 +114,21 @@ function deleteRecord(index) {
 
   // Update the table with the latest data
   updateTable(namesArray);
+}
+
+function copyRecordToClipboard(textToCopy) {
+  // Create a temporary input element
+  const tempInput = document.createElement("input");
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
+
+  // Select and copy the text from the temporary input element
+  tempInput.select();
+  document.execCommand("copy");
+
+  // Remove the temporary input element
+  document.body.removeChild(tempInput);
+
+  // Notify the user that the text has been copied
+  alert("Copied to clipboard: " + textToCopy);
 }

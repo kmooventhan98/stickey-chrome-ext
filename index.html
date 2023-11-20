@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  </head>
+  <body>
     <form>
-        <input
-            type="text"
-            id="todo"
-            name="todo"
-            placeholder="Enter a new task"
-            autocomplete="off"
-        />
-        <input type="submit" value="Add" id="addButton" />
+      <input
+        type="text"
+        id="todo"
+        name="todo"
+        placeholder="Enter a new task"
+        autocomplete="off"
+      />
+      <input type="submit" value="Add" id="addButton" />
     </form>
     <div class="container" id="container">
-        <table class="todo-table">
-            <tbody id="table-body"></tbody>
-        </table>
+      <table class="todo-table">
+        <tbody id="table-body"></tbody>
+      </table>
+      <i class="fa-sharp fa-light fa-magnifying-glass"></i>
     </div>
     <script src="script.js"></script>
-</body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css"
+      integrity="sha512-rOTVxSYNb4+/vo9pLIcNAv9yQVpC8DNcFDWPoc+gTv9SLu5H8W0Dn7QA4ffLHKA0wysdo6C5iqc+2LEO1miAow=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </body>
 </html>
